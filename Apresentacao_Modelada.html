@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C7iX Tecnologias - Apresentação de Vendas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: linear-gradient(135deg, #F0F0F0 0%, #FFFFFF 100%);
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 230, 230, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #00E6E6 0%, #00B8B8 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-section .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-container {
+            margin-bottom: 40px;
+            max-width: 300px;
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: #00E6E6;
+        }
+        
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .text-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .image-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight {
+            color: #00E6E6;
+            font-weight: bold;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #00E6E6;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00E6E6, #00B8B8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        
+        .feature-description {
+            color: #666666;
+            line-height: 1.6;
+        }
+        
+        .experience-box {
+            background: rgba(0, 230, 230, 0.1);
+            border-left: 5px solid #00E6E6;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .innovation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .innovation-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .innovation-icon {
+            width: 50px;
+            height: 50px;
+            background: #00E6E6;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #00E6E6;
+            color: white;
+            font-weight: bold;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        
+        .promo-section {
+            background: linear-gradient(135deg, rgba(0, 230, 230, 0.1), rgba(0, 230, 230, 0.05));
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            border: 2px dashed #00E6E6;
+        }
+        
+        .promo-badge {
+            position: absolute;
+            top: -15px;
+            right: 40px;
+            background: #00E6E6;
+            color: white;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .promo-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .promo-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .promo-icon {
+            color: #00E6E6;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .plans-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .plan-category {
+            background: rgba(0, 230, 230, 0.1);
+            border-left: 5px solid #00E6E6;
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            margin-bottom: 20px;
+        }
+        
+        .plan-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        
+        .plan-description {
+            color: #666666;
+            margin-bottom: 15px;
+        }
+        
+        .plan-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .plan-list li {
+            padding: 5px 0;
+            font-size: 1.1rem;
+        }
+        
+        .plan-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .plan-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .benefit-item {
+            background: rgba(0, 230, 230, 0.05);
+            padding: 15px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .benefit-icon {
+            color: #00E6E6;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #333333, #555555);
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: #00E6E6;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .contact-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .cta-box {
+            background: rgba(0, 230, 230, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: #00E6E6;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .time-tag {
+            background: #00E6E6;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .content-grid, .plans-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .text-content {
+                font-size: 1rem;
+            }
+            
+            .feature-grid, .innovation-grid, .benefits-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .promo-section {
+                padding: 25px;
+            }
+            
+            .promo-badge {
+                right: 20px;
+                font-size: 1rem;
+            }
+            
+            .promo-title {
+                font-size: 1.5rem;
+            }
+            
+            .plan-images {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .logo-container {
+                max-width: 200px;
+            }
+            
+            .feature-card, .contact-item {
+                padding: 20px;
+            }
+            
+            .promo-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="section hero-section">
+        <div class="container">
+            <div class="logo-container">
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias">
+            </div>
+            <h1 class="hero-title">C7iX Tecnologias</h1>
+            <h2 class="hero-subtitle">Conectando você ao futuro</h2>
+        </div>
+    </section>
+
+    <!-- Nossa História Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossa História e Liderança</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo">
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>A C7iX Tecnologias nasceu da visão e <span class="highlight">determinação</span> de um profissional apaixonado por conectar pessoas através da tecnologia.</p>
+                    
+                    <div class="experience-box">
+                        <p><i class="fas fa-laptop-code"></i> <span class="highlight">4 anos</span> de experiência na área de T.I.</p>
+                        <p><i class="fas fa-broadcast-tower"></i> <span class="highlight">7 anos</span> de experiência na área de Telecomunicações.</p>
+                    </div>
+                    
+                    <p>Com uma sólida formação técnica e vasta experiência no mercado, nosso fundador identificou a necessidade de um serviço de internet que realmente atendesse às expectativas dos clientes da região.</p>
+                    
+                    <p>Foi com <span class="highlight">coragem e determinação</span> que ele decidiu iniciar este projeto, transformando conhecimento e experiência em uma empresa comprometida com a qualidade e satisfação dos clientes.</p>
+                </div>
+                <div class="image-content">
+                    <img src="/home/ubuntu/upload/Apresent.jpeg" alt="Fundador da C7iX Tecnologias durante apresentação">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conexão de Qualidade Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Conexão de Qualidade Superior</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo">
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>Na C7iX Tecnologias, entendemos que uma <span class="highlight">conexão estável e de alta velocidade</span> é essencial para sua vida digital.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="feature-title">Velocidade Consistente</div>
+                            <div class="feature-description">Navegue, assista e baixe conteúdos sem interrupções.</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-title">Estabilidade Garantida</div>
+                            <div class="feature-description">Conexão que não cai mesmo em horários de pico.</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="feature-title">Baixa Latência</div>
+                            <div class="feature-description">Ideal para jogos online, videoconferências e streaming.</div>
+                        </div>
+                    </div>
+                    
+                    <p>Nossa infraestrutura de rede foi projetada com <span class="highlight">tecnologia de ponta</span> para garantir a melhor experiência de navegação.</p>
+                </div>
+                <div class="image-content">
+                    <img src="/home/ubuntu/upload/search_images/uwtljpWzV4NI.jpg" alt="Conexão de internet de alta qualidade">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internet Nova Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Internet Nova na Região</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo">
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <div class="badge">
+                        <i class="fas fa-star"></i> NOVIDADE
+                    </div>
+                    
+                    <p>A C7iX Tecnologias chega à região trazendo uma <span class="highlight">nova opção de internet</span> com tecnologia avançada e serviços diferenciados.</p>
+                    
+                    <div class="innovation-grid">
+                        <div class="innovation-item">
+                            <div class="innovation-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>Tecnologia de última geração para conexões mais rápidas e estáveis</div>
+                        </div>
+                        
+                        <div class="innovation-item">
+                            <div class="innovation-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div>Melhor custo-benefício com planos adaptados às suas necessidades</div>
+                        </div>
+                        
+                        <div class="innovation-item">
+                            <div class="innovation-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>Atendimento personalizado e focado na satisfação do cliente</div>
+                        </div>
+                    </div>
+                    
+                    <p>Seja um dos primeiros a experimentar uma <span class="highlight">nova era de conectividade</span> na sua região com a C7iX Tecnologias!</p>
+                </div>
+                <div class="image-content">
+                    <img src="/home/ubuntu/upload/search_images/rnkmIstHCbEh.png" alt="Inovação em internet">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suporte Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Suporte Técnico Rápido e Eficiente</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo">
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>Sabemos que problemas técnicos podem acontecer, por isso oferecemos um <span class="highlight">suporte técnico ágil e eficiente</span> para resolver qualquer questão no menor tempo possível.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="feature-title">Atendimento Prioritário</div>
+                            <div class="feature-description">Equipe técnica especializada pronta para atender suas necessidades <span class="time-tag">24/7</span></div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="feature-title">Resposta Rápida</div>
+                            <div class="feature-description">Tempo médio de resposta inicial em menos de 30 minutos</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="feature-title">Resolução Eficiente</div>
+                            <div class="feature-description">Maioria dos problemas resolvidos no primeiro contato</div>
+                        </div>
+                    </div>
+                    
+                    <p>Nosso compromisso é garantir que você tenha a <span class="highlight">melhor experiência</span> com nossos serviços, do início ao fim.</p>
+                </div>
+                <div class="image-content">
+                    <img src="/home/ubuntu/upload/search_images/ucWAbyty5oHd.jpeg" alt="Suporte técnico profissional">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instalação Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Instalação Gratuita e Modem Incluso</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo">
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <div class="badge">
+                        <i class="fas fa-gift"></i> ZERO CUSTO INICIAL
+                    </div>
+                    
+                    <p>Comece a desfrutar da melhor internet da região <span class="highlight">sem nenhum custo de instalação</span>. Nossa equipe técnica altamente qualificada realizará todo o processo de forma rápida e eficiente.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="feature-title">Instalação Profissional</div>
+                            <div class="feature-description">Técnicos especializados e equipamentos de qualidade para garantir o melhor desempenho.</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <div class="feature-title">Modem de Alta Performance</div>
+                            <div class="feature-description">Equipamento moderno com tecnologia dual-band para maior alcance e estabilidade.</div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="feature-title">Agendamento Flexível</div>
+                            <div class="feature-description">Escolha o melhor dia e horário para receber nossos técnicos.</div>
+                        </div>
+                    </div>
+                    
+                    <p>Todos os nossos planos incluem <span class="highlight">modem em comodato</span>, sem custos adicionais durante toda a vigência do contrato.</p>
+                </div>
+                <div class="image-content">
+                    <img src="/home/ubuntu/upload/search_images/bZlQeyMHtEuL.jpg" alt="Instalação de internet e equipamentos">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promoção Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Promoção Especial: 30 Dias Grátis</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo">
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>Queremos que você experimente nossa <span class="highlight">internet de alta qualidade</span> sem compromisso inicial.</p>
+                    
+                    <div class="promo-section">
+                        <div class="promo-badge">OFERTA ESPECIAL</div>
+                        <div class="promo-title">30 DIAS GRÁTIS</div>
+                        
+                        <div class="promo-grid">
+                            <div class="promo-item">
+                                <div class="promo-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Válido para planos de <span class="highlight">150MB ou superiores</span></div>
+                            </div>
+                            
+                            <div class="promo-item">
+                                <div class="promo-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Sem compromisso inicial</div>
+                            </div>
+                            
+                            <div class="promo-item">
+                                <div class="promo-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Instalação imediata</div>
+                            </div>
+                            
+                            <div class="promo-item">
+                                <div class="promo-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Suporte técnico completo durante o período</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Aproveite esta oportunidade para conhecer a diferença que uma <span class="highlight">conexão de qualidade</span> pode fazer no seu dia a dia.</p>
+                </div>
+                <div class="image-content">
+                    <img src="/home/ubuntu/upload/search_images/WIzTegR2amco.jpg" alt="Wi-Fi e conectividade">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossos Planos de Internet</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo">
+            </div>
+            
+            <div class="plans-section">
+                <p class="text-content">A C7iX Tecnologias oferece <span class="highlight">planos personalizados</span> para atender diferentes necessidades e estilos de vida, sempre com a melhor qualidade e custo-benefício da região.</p>
+                
+                <div class="plans-grid">
+                    <div>
+                        <div class="plan-category">
+                            <div class="plan-title">Planos Iniciais</div>
+                            <div class="plan-description">Ideais para uso doméstico básico, navegação e streaming em qualidade HD.</div>
+                            <ul class="plan-list">
+                                <li><span class="highlight">100MB</span> - R$ 69,90/mês</li>
+                                <li><span class="highlight">200MB</span> - R$ 99,90/mês</li>
+                                <li><span class="highlight">150MB</span> - R$ 79,90/mês</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="plan-category">
+                            <div class="plan-title">Planos Avançados</div>
+                            <div class="plan-description">Para quem precisa de alta performance, trabalho remoto e streaming em 4K.</div>
+                            <ul class="plan-list">
+                                <li><span class="highlight">250MB</span> - R$ 139,90/mês</li>
+                                <li><span class="highlight">400MB</span> - R$ 159,90/mês</li>
+                                <li><span class="highlight">300MB</span> - R$ 149,90/mês</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <i class="fas fa-check benefit-icon"></i>
+                                Instalação Gratuita
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-wifi benefit-icon"></i>
+                                Wi-Fi Grátis
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-router benefit-icon"></i>
+                                Roteador por Comodato
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-infinity benefit-icon"></i>
+                                Navegação Ilimitada
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(0, 230, 230, 0.1); border-radius: 10px; padding: 20px; text-align: center; margin-top: 20px;">
+                            <div style="font-size: 1.3rem; font-weight: bold; color: #00E6E6; margin-bottom: 5px;">(71) 99349-9100</div>
+                            <div style="color: #333333;">@C7IXTECNOLOGIAS</div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-images">
+                        <img src="/home/ubuntu/upload/Planosiniciais.png" alt="Planos Iniciais C7iX" class="plan-image">
+                        <img src="/home/ubuntu/upload/Planosavançados.png" alt="Planos Avançados C7iX" class="plan-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Entre em Contato</h2>
+                <img src="/home/ubuntu/C7iX_Presentation/logo_redonda.png" alt="Logo C7iX Tecnologias" class="logo" style="filter: brightness(0) invert(1);">
+            </div>
+            
+            <div class="text-content" style="text-align: center; margin-bottom: 40px;">
+                <p style="color: white;">Estamos prontos para conectar você ao futuro com nossa <span class="highlight">internet de alta qualidade</span>.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-text">(XX) XXXX-XXXX</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">contato@c7ix.com.br</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">Sua Cidade - Estado</div>
+                </div>
+            </div>
+            
+            <div class="cta-box">
+                <div class="cta-title">Conecte-se Agora!</div>
+                <p>Entre em contato hoje mesmo e aproveite nossas ofertas especiais. Nossos consultores estão prontos para encontrar o melhor plano para você.</p>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
