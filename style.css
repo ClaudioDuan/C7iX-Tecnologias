@@ -43,13 +43,15 @@
         
         .logo-container {
             margin-bottom: 40px;
-            max-width: 300px;
+            max-width: 500px;
         }
         
         .logo-container img {
             width: 100%;
             height: auto;
-            filter: brightness(0) invert(1);
+            border-radius: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
         }
         
         .hero-title {
